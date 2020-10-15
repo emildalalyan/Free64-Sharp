@@ -1,4 +1,4 @@
-<img width="100" height="100" align="left" alt="Free64 Logo"  src="free64-gradient-logo.png">
+<img width="110" height="110" align="left" alt="Free64 Logo"  src="free64-gradient-logo.png">
 
 ## Free64 Extreme Edition
 **Free64** — open source program, that displays information about your computer. But now Free64 will working on *.NET C#* and *Windows Forms*. And now it published under [MIT Licence](LICENSE).
