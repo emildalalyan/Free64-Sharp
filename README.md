@@ -3,10 +3,18 @@
 ## Free64 Extreme Edition
 **Free64** — open source program, that displays information about your computer. But now Free64 will working on *.NET C#* and *Windows Forms*. And now it published under [MIT Licence](LICENSE).
 
-### PHP Version of Free64
-:floppy_disk: **PHP Devel Studio** version of *Free64* can be found *[here](https://github.com/emil0911/free64)*. This version is **deprecated**.
+### Frequently Asked Questions (FAQ)
 
-### Requirements
+#### Where releases?
+I'm now writing **First Alpha Version** (**0.5-alpha**)
+
+#### Why first release starts from 0.5-alpha?
+Because **Last Version** of PHP Free64 is **0.4-beta**
+
+#### Where download previous PHP Versions of Free64?
+:floppy_disk: **PHP Devel Studio** versions of *Free64* can be found *[here](https://github.com/emil0911/free64)*. These versions are **deprecated**.
+
+#### What's requirements?
   - Windows Vista with **Service Pack 2**
   - **.NET Framework 4.5** installed on the machine. If you doesn't have, download it *[here](https://microsoft.com/download/details.aspx?id=30653)*
   - Around **10-20 MB** of Disk Space
