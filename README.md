@@ -6,7 +6,7 @@
 ### Frequently Asked Questions (FAQ)
 
 #### Where releases?
-I'm now writing **First Alpha Version** (**0.5-alpha**)
+:computer: I'm now writing **First Alpha Version** (**0.5-alpha**)
 
 #### Why first release starts from 0.5-alpha?
 Because **Last Version** of PHP Free64 is **0.4-beta**
@@ -38,3 +38,7 @@ Because **Last Version** of PHP Free64 is **0.4-beta**
 
 ### Donate
 :credit_card: If someone wants to **support** *me* or *my project* with *money*, then the link to *DonationAlerts* is [**here**](https://donationalerts.com/r/emildalalyan)
+
+## Plans on a Future
+  - To write C# Version of Free64 at least with the same functionality as the [PHP Version](http://github.com/emil0911/free64).
+  - To write Android Version (in Java) - Yes, you don't disheard, Android Version!
