@@ -41,4 +41,4 @@ Because **Last Version** of PHP Free64 is **0.4-beta**
 
 ### Plans on a Future
   - Write C# Version of Free64 at least with the same functionality as the [PHP Version](http://github.com/emil0911/free64).
-  - Write Android Version (in Java) - Yes, you don't disheard, Android Version!
+  - Write Android Version (in Java) - Yes, you don't misheard, Android Version!
