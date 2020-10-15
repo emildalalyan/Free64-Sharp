@@ -29,4 +29,4 @@
   | **Gradient** Photoshop Document | [free64-gradient-logo.psd](https://github.com/emil0911/free64/blob/master/free64-gradient-logo.psd?raw=true) |
 
 ### Donate
-:credit_card: If someone wants to **support** *me* or *my project* with *money*, the link to *DonationAlerts* is [**here**](https://donationalerts.com/r/emildalalyan)
+:credit_card: If someone wants to **support** *me* or *my project* with *money*, then the link to *DonationAlerts* is [**here**](https://donationalerts.com/r/emildalalyan)
