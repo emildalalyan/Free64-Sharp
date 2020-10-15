@@ -4,7 +4,7 @@
 **Free64** — open source program, that displays information about your computer. But now Free64 will working on *.NET C#* and *Windows Forms*. And now it published under [MIT Licence](LICENSE).
 
 ### PHP Version of Free64
-:floppy_disk: **PHP Devel Studio** version of *Free64* may to found *[here](https://github.com/emil0911/free64)*. This version is **deprecated**.
+:floppy_disk: **PHP Devel Studio** version of *Free64* can be found *[here](https://github.com/emil0911/free64)*. This version is **deprecated**.
 
 ### Requirements
   - Windows Vista with **Service Pack 2**
