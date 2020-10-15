@@ -22,7 +22,7 @@ Because **Last Version** of PHP Free64 is **0.4-beta**
 #### What are an advantages giving by C#
   - Code runs **much faster**.
   - Support for 64-Bit (*Win64*)
-  - Supporting by Microsoft and Community (libraries, classes, and more...)
+  - Supporting by **Microsoft** and **Community** (*libraries, classes, and more...*)
 
 ### Releases (Where download a built program?)
 :desktop_computer: **Releases** will be appear **[here](http://github.com/emil0911/free64-cSharp/releases)**
