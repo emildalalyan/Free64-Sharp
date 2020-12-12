@@ -11,7 +11,7 @@
 #### Why first release starts from 0.5-alpha?
 Because **Last Version** of PHP Free64 is **0.4.1-beta**
 
-#### Where download previous PHP Versions of Free64?
+#### Where download PHP Versions of Free64?
 :floppy_disk: **PHP Devel Studio** versions of *Free64* can be found *[here](https://github.com/emil0911/free64)*.
 
 #### What are the requirements?
