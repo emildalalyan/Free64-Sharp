@@ -16,7 +16,7 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
 
 #### What are the requirements?
   - Windows Vista with **Service Pack 2**
-  - **.NET Framework 4.5** installed on the machine. If you doesn't have, download it *[here](https://microsoft.com/download/details.aspx?id=30653)*
+  - **.NET Framework 4.5** installed on the machine. If you haven't, download it *[here](https://microsoft.com/download/details.aspx?id=30653)*
   - Around **10-20 MB** of Disk Space
   
 #### What are an advantages giving by C#
