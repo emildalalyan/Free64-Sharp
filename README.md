@@ -30,6 +30,9 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
 ### Pre-alpha Screenshot
 ![Image](screen-prealpha.png)
 
+That looks splash:
+![Image](splash.png)
+
 ### Logo in different formats
   | Format | Link to it |
   | ------ | ------ |
