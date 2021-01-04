@@ -55,6 +55,6 @@ That looks **splash screen**:
 
 **Silk** Icon Project
 
-### Plans on a Future
+### Plans on The Future
   - Write **C# Version of Free64** at least with the same functionality as the [**PHP Version**](http://github.com/emil0911/free64).
   - Write **Android Version** (in **Java**) - Yes, you don't misheard, **Android Version**!
