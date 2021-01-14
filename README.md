@@ -12,7 +12,7 @@
 Because **Last Version** of PHP Free64 is **0.4.1-beta**
 
 #### Where download PHP Versions of Free64?
-:floppy_disk: **PHP Devel Studio** versions of *Free64* can be found *[here](https://github.com/emil0911/free64)*.
+:floppy_disk: **PHP Devel Studio** versions of *Free64* can be found *[here](https://github.com/emildalalyan/free64)*.
 
 #### What are the requirements?
   - Windows Vista with **Service Pack 2**
@@ -25,7 +25,7 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
   - Supporting by **Microsoft** and **Community** (*libraries, classes, and more...*)
 
 ### Releases (Where download a built program?)
-:desktop_computer: **Releases** will be appear **[here](http://github.com/emil0911/free64-cSharp/releases)**
+:desktop_computer: **Releases** will be appear **[here](http://github.com/emildalalyan/free64-cSharp/releases)**
 
 ### Pre-alpha Screenshot
 ![Image](screen-prealpha.png)
@@ -37,13 +37,13 @@ That looks **splash screen**:
 ### Logo in different formats
   | Format | Link to it |
   | ------ | ------ |
-  | Portable Network Graphics | [free64-logo.png](https://github.com/emil0911/free64/blob/master/free64-logo.png?raw=true) |
-  | Windows Icon | [free64-logo.ico](https://github.com/emil0911/free64/blob/master/free64-logo.ico?raw=true) |
-  | Photoshop Document | [free64-logo.psd](https://github.com/emil0911/free64/blob/master/free64-logo.psd?raw=true) |
+  | Portable Network Graphics | [free64-logo.png](https://github.com/emildalalyan/free64/blob/master/free64-logo.png?raw=true) |
+  | Windows Icon | [free64-logo.ico](https://github.com/emildalalyan/free64/blob/master/free64-logo.ico?raw=true) |
+  | Photoshop Document | [free64-logo.psd](https://github.com/emildalalyan/free64/blob/master/free64-logo.psd?raw=true) |
   |||
-  | **Gradient** Portable Network Graphics | [free64-gradient-logo.png](https://github.com/emil0911/free64/blob/master/free64-gradient-logo.png?raw=true) |
-  | **Gradient** Windows Icon | [free64-gradient-logo.ico](https://github.com/emil0911/free64/blob/master/free64-gradient-logo.ico?raw=true) |
-  | **Gradient** Photoshop Document | [free64-gradient-logo.psd](https://github.com/emil0911/free64/blob/master/free64-gradient-logo.psd?raw=true) |
+  | **Gradient** Portable Network Graphics | [free64-gradient-logo.png](https://github.com/emildalalyan/free64/blob/master/free64-gradient-logo.png?raw=true) |
+  | **Gradient** Windows Icon | [free64-gradient-logo.ico](https://github.com/emildalalyan/free64/blob/master/free64-gradient-logo.ico?raw=true) |
+  | **Gradient** Photoshop Document | [free64-gradient-logo.psd](https://github.com/emildalalyan/free64/blob/master/free64-gradient-logo.psd?raw=true) |
 
 ### Donate
 :credit_card: If someone wants to **support** *me* or *my project* with *money*, then the link to *DonationAlerts* is [**here**](https://donationalerts.com/r/emildalalyan)
@@ -56,5 +56,5 @@ That looks **splash screen**:
 **Silk** Icon Project
 
 ### Plans on The Future
-  - Write **C# Version of Free64** at least with the same functionality as the [**PHP Version**](http://github.com/emil0911/free64).
+  - Write **C# Version of Free64** at least with the same functionality as the [**PHP Version**](http://github.com/emildalalyan/free64).
   - Write **Android Version** (in **Java**) - Yes, you don't misheard, **Android Version**!
