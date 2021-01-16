@@ -5,13 +5,13 @@
 
 ### Frequently Asked Questions (FAQ)
 
-#### Where releases?
+#### Where are releases?
 :computer: I'm now writing **First Alpha Version** (**0.5-alpha**)
 
 #### Why first release starts from 0.5-alpha?
 Because **Last Version** of PHP Free64 is **0.4.1-beta**
 
-#### Where download PHP Versions of Free64?
+#### Where i can download PHP Versions of Free64?
 :floppy_disk: **PHP Devel Studio** versions of *Free64* can be found *[here](https://github.com/emildalalyan/free64)*.
 
 #### What are the requirements?
@@ -19,15 +19,15 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
   - **.NET Framework 4.5** installed on the machine. If you haven't, download it *[here](https://microsoft.com/download/details.aspx?id=30653)*
   - Around **10-20 MB** of Disk Space
   
-#### What are an advantages giving by C#
+#### What are advantages giving by C#
   - Code runs **much faster**.
   - Support for 64-Bit (*Win64*)
   - Supporting by **Microsoft** and **Community** (*libraries, classes, and more...*)
 
-### Releases (Where download a built program?)
+### Releases (Where i can download a built program?)
 :desktop_computer: **Releases** will be appear **[here](http://github.com/emildalalyan/Free64-Sharp/releases)**
 
-### Pre-alpha Screenshot
+### Pre-alpha Screenshots
 ![Image](screen-prealpha.png)
 
 That looks **splash screen**:
@@ -49,8 +49,6 @@ That looks **splash screen**:
 :credit_card: If someone wants to **support** *me* or *my project* with *money*, then the link to *DonationAlerts* is [**here**](https://donationalerts.com/r/emildalalyan)
 
 ### Thanks to
-[**UPX**](http://github.com/upx/upx) for their Packer
-
 **Tango** Icon Project
 
 **Silk** Icon Project
