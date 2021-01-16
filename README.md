@@ -25,7 +25,7 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
   - Supporting by **Microsoft** and **Community** (*libraries, classes, and more...*)
 
 ### Releases (Where download a built program?)
-:desktop_computer: **Releases** will be appear **[here](http://github.com/emildalalyan/free64-cSharp/releases)**
+:desktop_computer: **Releases** will be appear **[here](http://github.com/emildalalyan/Free64-Sharp/releases)**
 
 ### Pre-alpha Screenshot
 ![Image](screen-prealpha.png)
