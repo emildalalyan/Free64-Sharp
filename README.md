@@ -16,16 +16,11 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
 
 #### What are the requirements?
   - Windows Vista with **Service Pack 2**
-  - **.NET Framework 4.5** installed on the machine. If you haven't, download it *[here](https://microsoft.com/download/details.aspx?id=30653)*
+  - **.NET Framework 4.6** installed on the machine. If you haven't, download it *[here](https://microsoft.com/en-us/download/details.aspx?id=44927)*
   - Around **10-20 MB** of Disk Space
-  
-#### What are advantages giving by C#
-  - Code runs **much faster**.
-  - Support for 64-Bit (*Win64*)
-  - Supporting by **Microsoft** and **Community** (*libraries, classes, and more...*)
 
 ### Releases (Where i can download a built program?)
-:desktop_computer: **Releases** will be appear **[here](http://github.com/emildalalyan/Free64-Sharp/releases)**
+:desktop_computer: **Releases** are **[here](http://github.com/emildalalyan/Free64-Sharp/releases)**
 
 ### Screenshots
 That looks **splash screen**:
@@ -52,5 +47,4 @@ That looks **splash screen**:
 **Silk** Icon Project
 
 ### Plans on The Future
-  - Write **C# Version of Free64** at least with the same functionality as the [**PHP Version**](http://github.com/emildalalyan/free64).
   - Write **Android Version** (in **Java**) - Yes, you don't misheard, **Android Version**!
