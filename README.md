@@ -27,9 +27,7 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
 ### Releases (Where i can download a built program?)
 :desktop_computer: **Releases** will be appear **[here](http://github.com/emildalalyan/Free64-Sharp/releases)**
 
-### Pre-alpha Screenshots
-![Image](screen-prealpha.png)
-
+### Screenshots
 That looks **splash screen**:
 
 ![Image](splash.png)
