@@ -45,6 +45,3 @@ That looks **splash screen**:
 **Tango** Icon Project
 
 **Silk** Icon Project
-
-### Plans on The Future
-  - Write **Android Version** (in **Java**) - Yes, you don't misheard, **Android Version**!
