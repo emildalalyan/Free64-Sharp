@@ -16,7 +16,7 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
 
 #### What are the requirements?
   - Windows Vista with **Service Pack 2**
-  - **.NET Framework 4.6** installed on the machine. If you haven't, download it *[here](https://microsoft.com/en-us/download/details.aspx?id=44927)*
+  - **.NET Framework 4.6** has installed on the machine. If you haven't it, download *[here](https://microsoft.com/en-us/download/details.aspx?id=44927)*
   - Around **10-20 MB** of Disk Space
 
 ### Releases (Where i can download a built program?)
