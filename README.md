@@ -5,9 +5,6 @@
 
 ### Frequently Asked Questions (FAQ)
 
-#### Where are releases?
-:computer: I'm now writing **First Alpha Version** (**0.5-alpha**)
-
 #### Why first release starts from 0.5-alpha?
 Because **Last Version** of PHP Free64 is **0.4.1-beta**
 
@@ -18,6 +15,9 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
   - Windows Vista with **Service Pack 2**
   - **.NET Framework 4.6** has installed on the machine. If you haven't it, download *[here](https://microsoft.com/en-us/download/details.aspx?id=44927)*
   - Around **10-20 MB** of Disk Space
+
+#### Recommended requirements
+  - Microsoft Windows 10 2009
 
 ### Releases (Where i can download a built program?)
 :desktop_computer: **Releases** are **[here](http://github.com/emildalalyan/Free64-Sharp/releases)**
