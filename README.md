@@ -17,7 +17,7 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
   - Around **10-20 MB** of Disk Space
 
 #### Recommended requirements
-  - Microsoft Windows 10 2009
+  - Microsoft Windows 10 20H2
 
 ### Releases (Where i can download a built program?)
 :desktop_computer: **Releases** are **[here](http://github.com/emildalalyan/Free64-Sharp/releases)**
