@@ -12,8 +12,8 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
 :floppy_disk: **PHP Devel Studio** versions of *Free64* can be found *[here](https://github.com/emildalalyan/free64)*.
 
 #### What are the requirements?
-  - Windows Vista with **Service Pack 2**
-  - **.NET Framework 4.6** has installed on the machine. If you haven't it, download *[here](https://microsoft.com/en-us/download/details.aspx?id=44927)*
+  - Windows 7 with **Service Pack 1**
+  - **.NET 5** has installed on the machine (0.5.1-alpha or above). If you don't have it, download *[here](https://dotnet.microsoft.com/download/dotnet/5.0)*
   - Around **10-20 MB** of Disk Space
 
 #### Recommended requirements
