@@ -1,30 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>Free64.Information.snk</AssemblyOriginatorKeyFile>
     <Platforms>AnyCPU;x86</Platforms>
     <Authors>Emil Dalalyan</Authors>
-    <Product>Free64 Information DLL</Product>
+    <Product>Free64 Graphical Trace Listener</Product>
     <Copyright>Emil Dalalyan</Copyright>
     <PackageLicenseExpression>MIT Licence</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/emildalalyan/Free64-Sharp</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <AssemblyOriginatorKeyFile>Free64.GraphicalTrace.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>C:\Users\Emil\Desktop\.NET 5\Free64\Free64\Debug\Any CPU\</OutputPath>
-    <NoWarn>1701;1702;1416</NoWarn>
-    <WarningLevel>5</WarningLevel>
+    <OutputPath>C:\Users\Emil\Desktop\.NET 5\Free64\Free64\Debug\Any CPU</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <OutputPath>C:\Users\Emil\Desktop\.NET 5\Free64\Free64\Debug\Any CPU\</OutputPath>
-    <NoWarn>1701;1702;1416</NoWarn>
-    <WarningLevel>3</WarningLevel>
-    <Optimize>false</Optimize>
+    <OutputPath>C:\Users\Emil\Desktop\.NET 5\Free64\Free64\Debug\Any CPU</OutputPath>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -37,8 +34,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
-    <PackageReference Include="System.Management" Version="5.0.0" />
+    <None Remove="trace.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Free64.Common\Free64.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="trace.png" />
   </ItemGroup>
 
 </Project>

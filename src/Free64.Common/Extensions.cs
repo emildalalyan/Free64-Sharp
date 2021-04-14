@@ -21,7 +21,7 @@ namespace Free64.Common
         }
 
         /// <summary>
-        /// If <see cref="string"/> is null, then returns "N/A", otherwise returns <see cref="string"/> itself
+        /// If <see cref="string"/> is <see langword="null"/>, then returns "N/A", otherwise returns input <see cref="string"/>
         /// </summary>
         /// <param name="Str"></param>
         public static string IfNullReturnNA(this string Str)
@@ -38,28 +38,6 @@ namespace Free64.Common
         {
             if (Value < 1) return "N/A";
             return Value.ToString();
-        }
-
-        /// <summary>
-        /// Converts <see cref="uint"/> to readable size of bytes
-        /// </summary>
-        /// <param name="Bytes"></param>
-        public static string SizeInBytes(this uint Bytes)
-        {
-            if (Bytes >= 1024 && Bytes < 1048576)
-            {
-                return $"{Bytes / 1024} KB";
-            }
-            if (Bytes >= 1048576 && Bytes < 1073741824)
-            {
-                return $"{Bytes / 1048576} MB";
-            }
-            if (Bytes >= 1073741824)
-            {
-                return $"{Bytes / 1073741824} GB";
-            }
-
-            return $"{Bytes} B";
         }
     }
 }

@@ -22,5 +22,65 @@ namespace Free64.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableToolbar {
+            get {
+                return ((bool)(this["EnableToolbar"]));
+            }
+            set {
+                this["EnableToolbar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("800")]
+        public ushort fmMainWidth {
+            get {
+                return ((ushort)(this["fmMainWidth"]));
+            }
+            set {
+                this["fmMainWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        public ushort fmMainHeight {
+            get {
+                return ((ushort)(this["fmMainHeight"]));
+            }
+            set {
+                this["fmMainHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool EnableStatusBar {
+            get {
+                return ((bool)(this["EnableStatusBar"]));
+            }
+            set {
+                this["EnableStatusBar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public byte fmMainWindowState {
+            get {
+                return ((byte)(this["fmMainWindowState"]));
+            }
+            set {
+                this["fmMainWindowState"] = value;
+            }
+        }
     }
 }

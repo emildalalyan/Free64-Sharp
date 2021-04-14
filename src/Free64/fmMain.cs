@@ -1,33 +1,50 @@
 ﻿using System;
 using System.Windows.Forms;
+using Free64.Properties;
 
 namespace Free64
 {
+    /// <summary>
+    /// Class representing Free64 main <see cref="Form"/> itself
+    /// </summary>
     public partial class fmMain : Form
     {
+        /// <summary>
+        /// Creates new instance of <see cref="fmMain"/> and initializes <see cref="Free64Application"/>
+        /// </summary>
         public fmMain()
         {
             InitializeComponent();
-            Constants.fmMain = this;
-            this.Text = "Free64 Extreme Edition v" + Constants.Version;
+            Forms.fmMain = this; //We're setting public variable
+
             treeView1.Nodes[0].Expand();
-            toolStripStatusLabel1.Text = "Free64 Extreme Edition v" + Constants.Version;
+            this.Text = toolStripStatusLabel1.Text = "Free64 Extreme Edition v" + Constants.Version;
 
-            Free64Application.Settings.Initialize();
+            toolbarToolStripMenuItem.Checked = toolBar.Visible = Settings.Default.EnableToolbar;
+            statusBarToolStripMenuItem.Checked = statusStrip1.Visible = Settings.Default.EnableStatusBar;
 
-            toolbarToolStripMenuItem.Checked = Free64Application.Settings.Toolbar;
-            toolBar.Visible = Free64Application.Settings.Toolbar;
-
-            this.Width = (Free64Application.Settings.Width > 300) ? Free64Application.Settings.Width : 800;
-            this.Height = (Free64Application.Settings.Height > 300) ? Free64Application.Settings.Height : 544;
+            this.Width = Settings.Default.fmMainWidth;
+            this.Height = Settings.Default.fmMainHeight;
+            this.WindowState = (FormWindowState)Settings.Default.fmMainWindowState;
 
             Free64Application.Initialize();
         }
 
+        /// <summary>
+        /// Save <see cref="fmMain"/> form settings.
+        /// </summary>
+        public void SaveFormSettings()
+        {
+            Settings.Default["fmMainWidth"] = (ushort)this.Width;
+            Settings.Default["fmMainHeight"] = (ushort)this.Height;
+            Settings.Default["fmMainWindowState"] = (byte)this.WindowState;
+            Settings.Default.Save();
+        }
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            if (treeView1.SelectedNode == null) return;
-            if (treeView1.SelectedNode.PrevVisibleNode == null) return; 
+            if (treeView1.SelectedNode == null || treeView1.SelectedNode.PrevVisibleNode == null) return;
+
             treeView1.SelectedNode.PrevVisibleNode.Expand();
             treeView1.SelectedNode = treeView1.SelectedNode.PrevVisibleNode;
         }
@@ -44,15 +61,13 @@ namespace Free64
 
         private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            using (fmAbout About = new fmAbout())
-            {
-                About.ShowDialog();
-            }
+            using fmAbout About = new();
+            About.ShowDialog();
         }
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
-            Free64Application.Debug.Show();
+            Free64Application.GraphicalTrace.Show();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -62,7 +77,12 @@ namespace Free64
 
         private void repositoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(Constants.Repository);
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+            {
+                CreateNoWindow = false,
+                UseShellExecute = true,
+                FileName = Constants.Repository
+            });
         }
 
         private void expandToolStripMenuItem_Click(object sender, EventArgs e)
@@ -83,17 +103,23 @@ namespace Free64
 
         private void toolbarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Free64Application.Settings.Toolbar = toolBar.Visible = ConfigControl.Write("Toolbar.Visible", toolbarToolStripMenuItem.Checked);
+            toolBar.Visible = (bool)(Settings.Default["EnableToolbar"] = ((ToolStripMenuItem)sender).Checked);
         }
+
+        private void statusBarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            statusStrip1.Visible = (bool)(Settings.Default["EnableStatusBar"] = ((ToolStripMenuItem)sender).Checked);
+        }
+        
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            Constants.exCPUID.Show();
+            Forms.exCPUID.Show();
         }
 
         private void free64CPUIDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Constants.exCPUID.Show();
+            Forms.exCPUID.Show();
         }
 
         private void listView2_Click(object sender, EventArgs e)
@@ -104,7 +130,7 @@ namespace Free64
             {
                 case 0:
                     {
-                        Constants.exCPUID.Show();
+                        Forms.exCPUID.Show();
                         break;
                     }
             }
@@ -112,8 +138,8 @@ namespace Free64
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            if (treeView1.SelectedNode == null) return;
-            if (treeView1.SelectedNode.NextVisibleNode == null) return;
+            if (treeView1.SelectedNode == null || treeView1.SelectedNode.NextVisibleNode == null) return;
+
             treeView1.SelectedNode = treeView1.SelectedNode.NextVisibleNode;
             treeView1.SelectedNode.Expand();
         }
@@ -137,7 +163,7 @@ namespace Free64
 
         private void fmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Free64Application.SaveFormSettings();
+            this.SaveFormSettings();
         }
     }
 }

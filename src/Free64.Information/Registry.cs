@@ -1,133 +1,157 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Win32;
+using System.Diagnostics;
+using System.Runtime.Versioning;
 
 namespace Free64.Information
 {
+    /// <summary>
+    /// Class intended for gathering information from <i>Windows Registry</i>
+    /// </summary>
+    [SupportedOSPlatform("windows")]
     public class Registry : IInformationSource
     {
         /// <summary>
-        /// Debug Instance
+        /// Information, that gathered from Registry about OS
         /// </summary>
-        private readonly Debug.Debug Debug;
-
-        public struct RegistryInfo
+        public readonly struct OperatingSystemInformation
         {
-            public ushort Family { get; internal set; }
-            public ushort Model { get; internal set; }
-            public string ReleaseId { get; internal set; }
+            /// <summary>
+            /// Windows release ID (beginning from <b>Windows 10</b>)
+            /// </summary>
+            public string ReleaseId { get; init; }
+
+            /// <summary>
+            /// Windows display version (beginning from <b>Windows 10 20H1</b>)
+            /// </summary>
+            public string DisplayVersion { get; init; }
+
+            /// <summary>
+            /// Windows name (version) string
+            /// </summary>
+            public string ProductName { get; init; }
         }
 
-        private RegistryInfo __Information;
+        /// <summary>
+        /// Information, that gathered from Registry about CPU
+        /// </summary>
+        public readonly struct ProcessorInformation
+        {
+            /// <summary>
+            /// Processor family
+            /// </summary>
+            public ushort Family { get; init; }
+
+            /// <summary>
+            /// Processor model
+            /// </summary>
+            public ushort Model { get; init; }
+        }
 
         /// <summary>
-        /// Struct, storing information.
+        /// Structure, storing information about OS.
         /// </summary>
-        public RegistryInfo Information { get { return __Information; } }
+        public OperatingSystemInformation OperatingSystem { get; private set; }
+
+        /// <summary>
+        /// Structure, storing information about CPU.
+        /// </summary>
+        public ProcessorInformation Processor { get; private set; }
 
         /// <summary>
         /// Clear all information
         /// </summary>
         public void Reset()
         {
-            __Information = new RegistryInfo();
+            OperatingSystem = new OperatingSystemInformation();
+            Processor = new ProcessorInformation();
         }
 
         /// <summary>
-        /// Constructor of <see cref="Information.Registry"/>
+        /// Constructor of <b><see cref="Information.Registry"/></b>.
+        /// <para>Parameter <i>initialize</i> is using for initializing <see cref="Information.Registry"/> after its creation.</para>
         /// </summary>
-        /// <param name="Initialize"></param>
-        public Registry(bool Initialize = false)
+        /// <param name="initialize"></param>
+        public Registry(bool initialize = false)
         {
             Reset();
-            if (Initialize) this.Initialize();
+            if (initialize) this.Initialize();
         }
 
         /// <summary>
-        /// Constructor of <see cref="Information.Registry"/>
+        /// Gather <b>all</b> information from <i>Windows Registry</i>
         /// </summary>
-        /// <param name="AutoInitialize"></param>
-        /// <param name="DebugInstance"></param>
-        public Registry(bool AutoInitialize, Debug.Debug DebugInstance)
+        /// <returns></returns>
+        public List<Exception> Initialize()
         {
-            Reset();
-            Debug = DebugInstance;
-            if (AutoInitialize) this.Initialize();
-        }
+            Trace.WriteLine("Initializing Free64.Information.Registry class...");
 
-        public List<Message> Initialize()
-        {
-            return new List<Message>()
+            return new List<Exception>()
             {
                 ProcessorInfo(),
                 OperatingSystemInfo()
             };
         }
 
-        public Message OperatingSystemInfo()
+        /// <summary>
+        /// Get only information about OS from <i>Registry</i>
+        /// </summary>
+        /// <returns></returns>
+        public Exception OperatingSystemInfo()
         {
-            if (Debug != null) Debug.SendMessage("Collecting Information about Operating System from Windows Registry...");
+            Trace.WriteLine("module> Collecting Information about Operating System from Windows Registry...");
             try
             {
-                using (RegistryKey Reg = Microsoft.Win32.Registry.LocalMachine)
+                using RegistryKey Data = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", false);
+                if (Data is not null)
                 {
-                    object Data = Reg.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion", false).GetValue("ReleaseId");
-                    if (Data != null) __Information.ReleaseId = Data.ToString();
-                    else throw new Exception("ReleaseId wasn't found in Windows Registry...");
+                    OperatingSystem = new OperatingSystemInformation()
+                    {
+                        ReleaseId = Data.GetValue("ReleaseId") as string ?? string.Empty,
+                        DisplayVersion = Data.GetValue("DisplayVersion") as string ?? string.Empty,
+                        ProductName = Data.GetValue("ProductName") as string ?? string.Empty
+                    };
                 }
+                else throw new DataRegistryException(DataRegistryException.ExceptionType.ParameterNotFound);
             }
             catch (Exception e)
             {
-                __Information.ReleaseId = "";
-                if (Debug != null) Debug.SendMessage($"[OperatingSystemInfo()] {e.Message}");
-                return new Message
-                {
-                    Exception = e,
-                    Class = "OperatingSystemInfo",
-                    Successful = false
-                };
+                Trace.WriteLine($"module> [OperatingSystemInfo()] {e.Message}");
+                return e;
             }
 
-            return new Message
-            {
-                Exception = null,
-                Class = "OperatingSystemInfo",
-                Successful = true
-            };
+            return null;
         }
 
-        public Message ProcessorInfo()
+        /// <summary>
+        /// Get only information about CPU from Registry
+        /// </summary>
+        /// <returns></returns>
+        public Exception ProcessorInfo()
         {
-            if (Debug != null) Debug.SendMessage("Collecting Information about Processor from Windows Registry...");
+            Trace.WriteLine("module> Collecting Information about Processor from Windows Registry...");
             try
             {
-                using(RegistryKey Reg = Microsoft.Win32.Registry.LocalMachine)
+                using RegistryKey Reg = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"HARDWARE\DESCRIPTION\System\CentralProcessor\0", false);
+                
+                string ID = Reg.GetValue("Identifier").ToString();
+                if (!ID.Contains(" Family ") || !ID.Contains(" Model ") || !ID.Contains(" Stepping ")) throw new DataRegistryException(DataRegistryException.ExceptionType.InvalidData);
+                string[] IdSplit = ID.Split(new string[] { " Family " }, StringSplitOptions.RemoveEmptyEntries)[1].Split(new string[] { " Model " }, StringSplitOptions.RemoveEmptyEntries);
+                IdSplit[1] = IdSplit[1].Split(new string[] { " Stepping " }, StringSplitOptions.RemoveEmptyEntries)[0];
+                Processor = new()
                 {
-                    string ID = Reg.OpenSubKey(@"HARDWARE\DESCRIPTION\System\CentralProcessor\0", false).GetValue("Identifier").ToString();
-                    if (!ID.Contains(" Family ") || !ID.Contains(" Model ") || !ID.Contains(" Stepping ")) throw new Exception("Invalid data found in Windows Registry.");
-                    string[] IdSplit = ID.Split(new string[] { " Family " }, StringSplitOptions.RemoveEmptyEntries)[1].Split(new string[] { " Model " }, StringSplitOptions.RemoveEmptyEntries);
-                    IdSplit[1] = IdSplit[1].Split(new string[] { " Stepping " }, StringSplitOptions.RemoveEmptyEntries)[0];
-                    __Information.Family = Convert.ToUInt16(IdSplit[0]);
-                    __Information.Model = Convert.ToUInt16(IdSplit[1]);
-                }
+                    Family = ushort.Parse(IdSplit[0]),
+                    Model = ushort.Parse(IdSplit[1])
+                };
             }
             catch(Exception e)
             {
-                if (Debug != null) Debug.SendMessage("[ProcessorInfo()] " + e.Message);
-                return new Message
-                {
-                    Exception = e,
-                    Class = "ProcessorInfo",
-                    Successful = false
-                };
+                Trace.WriteLine("module> [ProcessorInfo()] " + e.Message);
+                return e;
             }
 
-            return new Message
-            {
-                Exception = null,
-                Class = "ProcessorInfo",
-                Successful = true
-            };
+            return null;
         }
     }
 }

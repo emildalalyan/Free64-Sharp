@@ -1,40 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-using System.Windows;
-using System.Windows.Interop;
 
 namespace Free64.Common
 {
     /// <summary>
     /// Class, providing part of Windows API for .NET
     /// </summary>
-    static class WindowsAPI
+    public static class WindowsAPI
     {
         /// <summary>
-        /// Windows API GetWindowLong Function.
+        /// Class, that contains imported external methods
+        /// </summary>
+        private static class NativeMethods
+        {
+            [DllImport("user32.dll", EntryPoint = "GetWindowLong")]
+            public static extern int GetWindowLong(IntPtr hWnd, Parameters nIndex);
+
+            [DllImport("user32.dll", EntryPoint = "SetWindowLong")]
+            public static extern int SetWindowLong(IntPtr hWnd, Parameters nIndex, int dwNewLong);
+        }
+
+        /// <summary>
+        /// Windows API GetWindowLong function.
         /// </summary>
         /// <param name="hWnd"></param>
         /// <param name="nIndex"></param>
         /// <returns></returns>
-        [DllImport("user32.dll")]
-        public static extern int GetWindowLong(IntPtr hWnd, Parameters nIndex);
+        public static int GetWindowLong(IntPtr Handle, Parameters Parameters) => NativeMethods.GetWindowLong(Handle, Parameters);
 
         /// <summary>
-        /// Windows API SetWindowLong Function.
+        /// Windows API SetWindowLong function.
         /// </summary>
         /// <param name="hWnd"></param>
         /// <param name="nIndex"></param>
         /// <param name="dwNewLong"></param>
         /// <returns></returns>
-        [DllImport("user32.dll")]
-        public static extern int SetWindowLong(IntPtr hWnd, Parameters nIndex, int dwNewLong);
+        public static int SetWindowLong(IntPtr Handle, Parameters Parameters, int NewLong) => NativeMethods.SetWindowLong(Handle, Parameters, NewLong);
 
         /// <summary>
-        /// Extra Window Memory Offsets
+        /// Enumeration of parameters, which can be written in extra window memory
         /// </summary>
         public enum Parameters
         {
@@ -48,7 +52,7 @@ namespace Free64.Common
         }
 
         /// <summary>
-        /// Window styles, that can be written into extra window memory.
+        /// Window styles, which can be written into extra window memory.
         /// </summary>
         public enum WindowStyles
         {

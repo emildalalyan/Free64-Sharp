@@ -20,15 +20,5 @@ namespace Free64
             label2.Parent = pictureBox2;
             label2.Text = Constants.Version + " | by Emil Dalalyan";
         }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

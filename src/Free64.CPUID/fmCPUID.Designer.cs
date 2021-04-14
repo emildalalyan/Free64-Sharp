@@ -380,7 +380,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(12, 83);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 15);
+            this.label4.Size = new System.Drawing.Size(66, 15);
             this.label4.TabIndex = 9;
             this.label4.Text = "Max Clock:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -414,7 +414,7 @@
             this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label14.Location = new System.Drawing.Point(415, 437);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 15);
+            this.label14.Size = new System.Drawing.Size(51, 15);
             this.label14.TabIndex = 14;
             this.label14.Text = "Threads:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -582,7 +582,7 @@
             // 
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.Location = new System.Drawing.Point(3, 2);
+            this.label23.Location = new System.Drawing.Point(5, 2);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(58, 16);
             this.label23.TabIndex = 1;
@@ -681,7 +681,7 @@
             // 
             this.l3cs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.l3cs.Location = new System.Drawing.Point(3, 2);
+            this.l3cs.Location = new System.Drawing.Point(5, 2);
             this.l3cs.Name = "l3cs";
             this.l3cs.Size = new System.Drawing.Size(58, 16);
             this.l3cs.TabIndex = 1;
@@ -759,7 +759,7 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(368, 282);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(74, 15);
+            this.label34.Size = new System.Drawing.Size(75, 15);
             this.label34.TabIndex = 48;
             this.label34.Text = "Max Voltage:";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -780,7 +780,7 @@
             // 
             this.l4cs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.l4cs.Location = new System.Drawing.Point(3, 2);
+            this.l4cs.Location = new System.Drawing.Point(5, 2);
             this.l4cs.Name = "l4cs";
             this.l4cs.Size = new System.Drawing.Size(58, 16);
             this.l4cs.TabIndex = 1;
@@ -992,7 +992,7 @@
             this.label48.AutoSize = true;
             this.label48.Location = new System.Drawing.Point(358, 397);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(35, 15);
+            this.label48.Size = new System.Drawing.Size(34, 15);
             this.label48.TabIndex = 62;
             this.label48.Text = "Type:";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1065,7 +1065,8 @@
             // 
             // fmCPUID
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(536, 470);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel16);
@@ -1121,7 +1122,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rectangleShape3);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1165,20 +1166,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel rectangleShape1;
-        private System.Windows.Forms.Panel rectangleShape4;
-        private System.Windows.Forms.Panel rectangleShape3;
-        private System.Windows.Forms.Panel rectangleShape2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel rectangleShape5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel rectangleShape6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel rectangleShape7;
-        private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label9;
         public System.Windows.Forms.Label label11;
@@ -1186,69 +1173,82 @@
         public System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Label label10;
         public System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel rectangleShape9;
-        private System.Windows.Forms.Panel rectangleShape8;
         public System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Panel rectangleShape10;
-        private System.Windows.Forms.Label label17;
         public System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip ContextSave;
         private System.Windows.Forms.ToolStripMenuItem ClipboardSave;
         private System.Windows.Forms.ToolStripMenuItem FileSave;
-        private System.Windows.Forms.Label label19;
         public System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         public System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Panel panel4;
         public System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Panel panel5;
         public System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Panel panel6;
         public System.Windows.Forms.Label l3cs;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Panel panel7;
         public System.Windows.Forms.Label l1cs;
-        private System.Windows.Forms.Panel panel8;
         public System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Panel panel9;
         public System.Windows.Forms.Label l4cs;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Panel panel10;
         public System.Windows.Forms.Label l2cs;
-        private System.Windows.Forms.Panel panel11;
         public System.Windows.Forms.Label MotherBoardManufacturer;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Panel panel12;
         public System.Windows.Forms.Label MotherBoard;
-        private System.Windows.Forms.Panel panel13;
         public System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Panel panel14;
         public System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Panel panel15;
         public System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Panel panel16;
         public System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Panel panel17;
         public System.Windows.Forms.Label label52;
+        internal System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.Label label2;
+        internal System.Windows.Forms.Panel rectangleShape1;
+        internal System.Windows.Forms.Panel rectangleShape4;
+        internal System.Windows.Forms.Panel rectangleShape3;
+        internal System.Windows.Forms.Panel rectangleShape2;
+        internal System.Windows.Forms.Label label3;
+        internal System.Windows.Forms.Panel rectangleShape5;
+        internal System.Windows.Forms.Label label4;
+        internal System.Windows.Forms.Panel rectangleShape6;
+        internal System.Windows.Forms.Label label5;
+        internal System.Windows.Forms.Panel rectangleShape7;
+        internal System.Windows.Forms.Label label6;
+        internal System.Windows.Forms.Panel rectangleShape9;
+        internal System.Windows.Forms.Panel rectangleShape8;
+        internal System.Windows.Forms.Label label14;
+        internal System.Windows.Forms.Label label16;
+        internal System.Windows.Forms.Panel rectangleShape10;
+        internal System.Windows.Forms.Label label17;
+        internal System.Windows.Forms.Button button1;
+        internal System.Windows.Forms.Label label19;
+        internal System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.Panel panel2;
+        internal System.Windows.Forms.Label label22;
+        internal System.Windows.Forms.Panel panel3;
+        internal System.Windows.Forms.Label label24;
+        internal System.Windows.Forms.Panel panel4;
+        internal System.Windows.Forms.Label label26;
+        internal System.Windows.Forms.Panel panel5;
+        internal System.Windows.Forms.Label label28;
+        internal System.Windows.Forms.Panel panel6;
+        internal System.Windows.Forms.Label label30;
+        internal System.Windows.Forms.Label label31;
+        internal System.Windows.Forms.Panel panel7;
+        internal System.Windows.Forms.Panel panel8;
+        internal System.Windows.Forms.Label label34;
+        internal System.Windows.Forms.Panel panel9;
+        internal System.Windows.Forms.Label label36;
+        internal System.Windows.Forms.Label label37;
+        internal System.Windows.Forms.Panel panel10;
+        internal System.Windows.Forms.Panel panel11;
+        internal System.Windows.Forms.Label label40;
+        internal System.Windows.Forms.Label label41;
+        internal System.Windows.Forms.Label label42;
+        internal System.Windows.Forms.Panel panel12;
+        internal System.Windows.Forms.Panel panel13;
+        internal System.Windows.Forms.Label label45;
+        internal System.Windows.Forms.Panel panel14;
+        internal System.Windows.Forms.Panel panel15;
+        internal System.Windows.Forms.Label label48;
+        internal System.Windows.Forms.Panel panel16;
+        internal System.Windows.Forms.Label label50;
+        internal System.Windows.Forms.Label label51;
+        internal System.Windows.Forms.Panel panel17;
     }
 }

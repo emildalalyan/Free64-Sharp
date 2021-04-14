@@ -14,14 +14,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Free64.Common;
 
-namespace Free64.Debug
+namespace Free64.GraphicalTrace
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for trace listener form
     /// </summary>
-    public partial class fmDebug : Window
+    public partial class fmTrace : Window
     {
-        public fmDebug()
+        public fmTrace()
         {
             InitializeComponent();
         }
@@ -35,6 +35,12 @@ namespace Free64.Debug
         private void Window_SourceInitialized(object sender, EventArgs e)
         {
             this.HideAdditionalButtons();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (TraceListBox.SelectedItem == null) return;
+            Clipboard.SetText(((TraceListBox.SelectedItem as ListBoxItem).Content as ContentControl).Content as string);
         }
     }
 }

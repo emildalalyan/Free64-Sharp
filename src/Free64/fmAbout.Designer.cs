@@ -52,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.DarkGreen;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label1.Location = new System.Drawing.Point(64, 24);
@@ -60,6 +60,7 @@
             this.label1.Size = new System.Drawing.Size(240, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Free64 Extreme Edition";
+            this.label1.DoubleClick += new System.EventHandler(this.label1_DoubleClick);
             // 
             // label2
             // 
@@ -147,17 +148,18 @@
             this.label9.Location = new System.Drawing.Point(133, 92);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label9.Size = new System.Drawing.Size(148, 20);
+            this.label9.Size = new System.Drawing.Size(254, 20);
             this.label9.TabIndex = 11;
             this.label9.Text = "Free64 Extreme Edition";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label9.DoubleClick += new System.EventHandler(this.label9_DoubleClick);
             // 
             // label10
             // 
             this.label10.Location = new System.Drawing.Point(133, 112);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label10.Size = new System.Drawing.Size(221, 20);
+            this.label10.Size = new System.Drawing.Size(254, 20);
             this.label10.TabIndex = 12;
             this.label10.Text = "-";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -167,17 +169,18 @@
             this.label11.Location = new System.Drawing.Point(133, 132);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label11.Size = new System.Drawing.Size(148, 20);
+            this.label11.Size = new System.Drawing.Size(254, 20);
             this.label11.TabIndex = 13;
             this.label11.Text = "-";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label11.DoubleClick += new System.EventHandler(this.label11_DoubleClick);
             // 
             // label12
             // 
             this.label12.Location = new System.Drawing.Point(133, 152);
             this.label12.Name = "label12";
             this.label12.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label12.Size = new System.Drawing.Size(148, 20);
+            this.label12.Size = new System.Drawing.Size(254, 20);
             this.label12.TabIndex = 14;
             this.label12.Text = "MIT Licence";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -201,9 +204,9 @@
             this.label13.Location = new System.Drawing.Point(133, 194);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(221, 20);
+            this.label13.Size = new System.Drawing.Size(254, 20);
             this.label13.TabIndex = 16;
-            this.label13.Text = "Microsoft for C#, Tango Icon Project";
+            this.label13.Text = "Tango Icon Project, .NET Developers";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label14
@@ -241,7 +244,8 @@
             // 
             // fmAbout
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(424, 281);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -262,7 +266,7 @@
             this.Controls.Add(this.rectangleShape1);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
