@@ -1,7 +1,7 @@
 <img width="128" height="128" align="left" alt="Free64 Logo"  src="free64-gradient-logo.png">
 
 ## Free64 Extreme Edition
-**Free64** — open source program, that displays information about your computer. But now Free64 will work on *.NET*. And now it published under [MIT Licence](LICENSE).
+**Free64** — open source program, that displays information about your computer. It is published under [MIT Licence](LICENSE).
 
 ### Answers on possible questions
 
