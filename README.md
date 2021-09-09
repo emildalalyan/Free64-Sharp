@@ -3,12 +3,12 @@
 ## Free64 Extreme Edition
 **Free64** — open source program, that displays information about your computer. But now Free64 will work on *.NET*. And now it published under [MIT Licence](LICENSE).
 
-### Frequently Asked Questions (FAQ)
+### Answers on possible questions
 
-#### Why first release starts from 0.5-alpha?
+#### Why do first release starts from 0.5-alpha?
 Because **Last Version** of PHP Free64 is **0.4.1-beta**
 
-#### Where i can download PHP Versions of Free64?
+#### Where can i download PHP Versions of Free64?
 :floppy_disk: **PHP Devel Studio** versions of *Free64* can be found *[here](https://github.com/emildalalyan/free64)*.
 
 #### What are the requirements?
@@ -40,8 +40,3 @@ That looks **splash screen**:
 
 ### Donate
 :credit_card: If someone wants to **support** *me* or *my project* with *money*, then the link to *DonationAlerts* is [**here**](https://donationalerts.com/r/emildalalyan)
-
-### Thanks to
-**Tango** Icon Project
-
-**Silk** Icon Project
