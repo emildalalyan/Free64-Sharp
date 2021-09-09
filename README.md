@@ -5,7 +5,7 @@
 
 ### Answers on possible questions
 
-#### Why do first release starts from 0.5-alpha?
+#### Why does first release start from 0.5-alpha?
 Because **Last Version** of PHP Free64 is **0.4.1-beta**
 
 #### Where can i download PHP Versions of Free64?
