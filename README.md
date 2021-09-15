@@ -21,7 +21,7 @@ Because **Last Version** of PHP Free64 is **0.4.1-beta**
 #### Recommended requirements
   - Microsoft Windows 10 **20H2**
 
-### Releases (Where i can download a built program?)
+### Releases (Where can i download a compiled program?)
 :desktop_computer: **Releases** are **[here](http://github.com/emildalalyan/Free64-Sharp/releases)**
 
 ### Screenshots
