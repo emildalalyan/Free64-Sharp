@@ -11,7 +11,7 @@ namespace Free64.Information.Tests
     public class WMI
     {
         /// <summary>
-        /// Test <see cref="Information.WMI.WMIClass"/>es instances, it is null or not.
+        /// Test <see cref="Information.WMI.WMIClass"/> instances, whether it <see langword="is null"/> or not.
         /// </summary>
         [Fact]
         public void TestClassInstances()

@@ -3,42 +3,31 @@ using System.Linq;
 using Free64.Information;
 using System.IO;
 using Free64.Common;
+using System.Drawing;
+using System.Globalization;
 
-namespace Free64.CPUID
+namespace Free64
 {
     /// <summary>
     /// Class representing <b>Free64 CPUID</b> tool
     /// </summary>
-    public class CPUIDTool
+    public class CpuidTool : Free64Tool
     {
         /// <summary>
-        /// <see cref="CPUIDTool"/> main form
+        /// Represents instance of <see cref="CpuidTool"/> main form
         /// </summary>
-        public fmCPUID Form = new();
+        public override CPUID.CpuidToolForm MainForm { get; } = new();
 
         /// <summary>
-        /// <see cref="CPUIDTool"/> constructor. If <see cref="bool"/> Initialize = <see langword="true"/>, then it will create and initialize necessary classes itself
+        /// Creates a new instance of <see cref="CpuidTool"/> class.
         /// </summary>
         /// <param name="Initialize"></param>
-        public CPUIDTool(bool Initialize = false)
+        public CpuidTool()
         {
-            if (Initialize) this.Initialize();
         }
 
         /// <summary>
-        /// <para><see cref="CPUIDTool"/> constructor. Provide initialized classes to prevent unnecessary initialization.</para>
-        /// <para>It calls <see cref="Initialize(WMI, Registry, Information.CPUID)"/> itself</para>
-        /// </summary>
-        /// <param name="wmi"></param>
-        /// <param name="registry"></param>
-        /// <param name="cpuid"></param>
-        public CPUIDTool(WMI wmi, Registry registry, Information.CPUID cpuid)
-        {
-            this.Initialize(wmi, registry, cpuid);
-        }
-
-        /// <summary>
-        /// Initialize <see cref="CPUIDTool"/> class
+        /// Gather all information and initialize <see cref="CpuidTool"/> class
         /// </summary>
         public void Initialize()
         {
@@ -46,99 +35,123 @@ namespace Free64.CPUID
             wmi.Processor.Initialize();
             wmi.CacheMemory.Initialize();
             wmi.Motherboard.Initialize();
-            Initialize(wmi, new Registry(true), new Information.CPUID(true));
+            wmi.Bios.Initialize();
+            
+            Registry reg = new(false);
+            reg.Processor.Initialize();
+
+            Initialize(wmi, reg, new(true));
         }
 
         /// <summary>
-        /// Provide initialized classes to prevent unnecessary initialization and initialize <see cref="CPUIDTool"/>
+        /// Provide initialized classes to prevent unnecessary collection of information and initialize <see cref="CpuidTool"/>
         /// </summary>
         /// <param name="wmi"></param>
         /// <param name="registry"></param>
         /// <param name="cpuid"></param>
         public void Initialize(WMI wmi, Registry registry, Information.CPUID cpuid)
         {
-            Form.label18.Text = "";
-            foreach (Information.CPUID.InstructionSet set in cpuid.Instructions)
+            MainForm.CpuExts.Text = string.Join(", ", cpuid.Instructions.Where((i) => Information.CPUID.CommonExtensions.Contains(i.Name) && i.Support));
+
+            if(cpuid.ProcessorCacheInfo == null || cpuid.ProcessorCacheInfo.Length < 1)
             {
-                if (!set.Support || !Information.CPUID.SIMDExtensions.Contains(set.Name)) continue;
-                Form.label18.Text += (Form.label18.Text.Length < 1 ? "" : ", ") + set.Name;
+                int Length = wmi.CacheMemory.CacheInformation.Length;
+
+                MainForm.SizeL1I.Text = Length > 0 ? wmi.CacheMemory.CacheInformation[0].Size.SizeInBytes() : "N/A";
+                MainForm.AssocL1I.Text = Length > 0 ? wmi.CacheMemory.CacheInformation[0].Associativity.IfNullReturnNA() : "N/A";
+
+                MainForm.SizeL1D.Text = "N/A";
+                MainForm.AssocL1D.Text = "N/A";
+                MainForm.SizeL1D.Enabled = false;
+                MainForm.AssocL1D.Enabled = false;
+
+                MainForm.SizeL2.Text = Length > 1 ? wmi.CacheMemory.CacheInformation[1].Size.SizeInBytes() : "N/A";
+                MainForm.AssocL2.Text = Length > 1 ? wmi.CacheMemory.CacheInformation[1].Associativity.IfNullReturnNA() : "N/A";
+
+                MainForm.SizeL3.Text = Length > 2 ? wmi.CacheMemory.CacheInformation[2].Size.SizeInBytes() : "N/A";
+                MainForm.AssocL3.Text = Length > 2 ? wmi.CacheMemory.CacheInformation[2].Associativity.IfNullReturnNA() : "N/A";
+
+                MainForm.SizeL4.Text = Length > 3 ? wmi.CacheMemory.CacheInformation[3].Size.SizeInBytes() : "N/A";
+                MainForm.AssocL4.Text = Length > 3 ? wmi.CacheMemory.CacheInformation[3].Associativity.IfNullReturnNA() : "N/A";
             }
-            Form.label18.Text = Form.label18.Text.Replace("SSE4_1", "SSE4.1")
-                                                 .Replace("SSE4_2", "SSE4.2")
-                                                 .Replace("MMX_plus", "MMX+")
-                                                 .Replace("AMD3DNowExt", "Extended 3DNow!")
-                                                 .Replace("AMD3DNow", "3DNow!")
-                                                 .Replace("AMD_V", "AMD-V")
-                                                 .Replace("VMX", "VT-x");
-
-            if(wmi.CacheMemory.CacheMemory != null)
+            else
             {
-                byte Length = (byte)wmi.CacheMemory.CacheMemory.Length;
-                if (Length > 0) Form.l1cs.Text = wmi.CacheMemory.CacheMemory[0].SizeInBytes();
-                if (Length > 1) Form.l2cs.Text = wmi.CacheMemory.CacheMemory[1].SizeInBytes();
-                if (Length > 2) Form.l3cs.Text = wmi.CacheMemory.CacheMemory[2].SizeInBytes();
-                if (Length > 3) Form.l4cs.Text = wmi.CacheMemory.CacheMemory[3].SizeInBytes();
+                int Length = cpuid.ProcessorCacheInfo.Length;
+
+                MainForm.SizeL1D.Text = Length > 0 ? $"{wmi.Processor.NumberOfLogicalProcessors / cpuid.ProcessorCacheInfo[0].ThreadsSharingCache} ⨯ {cpuid.ProcessorCacheInfo[0].Size.SizeInBytes()}" : "N/A";
+                MainForm.AssocL1D.Text = Length > 0 ? cpuid.ProcessorCacheInfo[0].Associativity + "-way Set-Associative" : "N/A";
+
+                MainForm.SizeL1I.Text = Length > 1 ? $"{wmi.Processor.NumberOfLogicalProcessors / cpuid.ProcessorCacheInfo[1].ThreadsSharingCache} ⨯ {cpuid.ProcessorCacheInfo[1].Size.SizeInBytes()}" : "N/A";
+                MainForm.AssocL1I.Text = Length > 1 ? cpuid.ProcessorCacheInfo[1].Associativity + "-way Set-Associative" : "N/A";
+
+                MainForm.SizeL2.Text = Length > 2 ? $"{wmi.Processor.NumberOfLogicalProcessors / cpuid.ProcessorCacheInfo[2].ThreadsSharingCache} ⨯ {cpuid.ProcessorCacheInfo[2].Size.SizeInBytes()}" : "N/A";
+                MainForm.AssocL2.Text = Length > 2 ? cpuid.ProcessorCacheInfo[2].Associativity + "-way Set-Associative" : "N/A";
+
+                MainForm.SizeL3.Text = Length > 3 ? $"{wmi.Processor.NumberOfLogicalProcessors / cpuid.ProcessorCacheInfo[3].ThreadsSharingCache} ⨯ {cpuid.ProcessorCacheInfo[3].Size.SizeInBytes()}" : "N/A";
+                MainForm.AssocL3.Text = Length > 3 ? cpuid.ProcessorCacheInfo[3].Associativity + "-way Set-Associative" : "N/A";
+
+                MainForm.SizeL4.Text = Length > 4 ? $"{wmi.Processor.NumberOfLogicalProcessors / cpuid.ProcessorCacheInfo[4].ThreadsSharingCache} ⨯ {cpuid.ProcessorCacheInfo[4].Size.SizeInBytes()}" : "N/A";
+                MainForm.AssocL4.Text = Length > 4 ? cpuid.ProcessorCacheInfo[4].Associativity + "-way Set-Associative" : "N/A";
             }
 
-            Form.label46.Text = wmi.Processor.NumberOfProcessors.ToString().IfNullReturnNA();
-            Form.label20.Text = registry.Processor.Family.IfNullReturnNA();
-            Form.label25.Text = registry.Processor.Model.IfNullReturnNA();
+            MainForm.NumberOfCpus.Text = wmi.Processor.NumberOfProcessors.ToString().IfNullReturnNA();
+            MainForm.CpuFamily.Text = registry.Processor.Family == null ? "N/A" : registry.Processor.Family.Value.ToString("X") + "h";
+            MainForm.CpuModel.Text = registry.Processor.Model == null ? "N/A" : registry.Processor.Model.Value.IfZeroReturnNA();
 
-            Form.label7.Text = cpuid.ProcessorName ?? wmi.Processor.Name.IfNullReturnNA();
-            Form.label8.Text = wmi.Processor.SocketDesignation.IfNullReturnNA();
-            Form.label9.Text = wmi.Processor.Stepping.ToString().IfNullReturnNA();
-            Form.label10.Text = wmi.Processor.MaxClockSpeed > 0 ? $"{wmi.Processor.MaxClockSpeed} MHz" : "N/A";
-            Form.label11.Text = wmi.Processor.Manufacturer.IfNullReturnNA();
-            Form.label12.Text = cpuid.ProcessorSpecification ?? wmi.Processor.Specification.IfNullReturnNA();
-            Form.label15.Text = wmi.Processor.NumberOfCores > 0 ? wmi.Processor.NumberOfCores.ToString() : "N/A";
-            Form.label13.Text = wmi.Processor.NumberOfLogicalProcessors > 0 ? wmi.Processor.NumberOfLogicalProcessors.ToString() : "N/A";
-            Form.label23.Text = $"{registry.Processor.Model:00}{wmi.Processor.Stepping:00}";
+            string cpuspecification = (cpuid.ProcessorSpecification == null || cpuid.ProcessorSpecification.Length < 1 ? wmi.Processor.Specification : cpuid.ProcessorSpecification) ?? string.Empty;
+            string cpuname = (cpuid.ProcessorName == null || cpuid.ProcessorName.Length < 1 ? wmi.Processor.Name : cpuid.ProcessorName) ?? string.Empty;
 
-            Form.MotherBoard.Text = wmi.Motherboard.Product.IfNullReturnNA();
-            Form.MotherBoardManufacturer.Text = wmi.Motherboard.Manufacturer.IfNullReturnNA();
+            MainForm.ProcessorName.Text = cpuname.IfNullReturnNA();
+            MainForm.PlatformName.Text = wmi.Processor.SocketDesignation.IfNullReturnNA();
+            MainForm.CpuStepping.Text = registry.Processor.Stepping == null ? wmi.Processor.Stepping.ToString().IfNullReturnNA() : registry.Processor.Stepping.Value.ToString();
+            MainForm.CpuMaxClock.Text = wmi.Processor.MaxClockSpeed > 0 ? $"{wmi.Processor.MaxClockSpeed} MHz" : "N/A";
+            MainForm.CpuManufacturer.Text = wmi.Processor.Manufacturer.IfNullReturnNA();
+            MainForm.CpuSpec.Text = cpuspecification.IfNullReturnNA();
+            MainForm.CpuCores.Text = wmi.Processor.NumberOfCores > 0 ? wmi.Processor.NumberOfCores.ToString() : "N/A";
+            MainForm.CpuThreads.Text = wmi.Processor.NumberOfLogicalProcessors.IfZeroReturnNA();
+            MainForm.CpuRev.Text = $"{registry.Processor.Model:00}{wmi.Processor.Stepping:00}";
+            MainForm.BiosVer.Text = $"{(wmi.Bios.ReleaseDate is DateTime dt ? dt.ToString("yyyy/MM/dd", CultureInfo.InvariantCulture) : "N/A")} | Version: {wmi.Bios.Version.IfNullReturnNA()}";
 
-            if (Directory.Exists("Data/CPU"))
+            MainForm.MotherboardName.Text = wmi.Motherboard.Product.IfNullReturnNA();
+            MainForm.MbManufacturer.Text = wmi.Motherboard.Manufacturer.IfNullReturnNA();
+
+            if (Directory.Exists($"{ToolsResourcesLocation}/cpuid/products/") && cpuname.Length > 0)
             {
-                // Variables Definition
-                int TempLength = 0;
+                // We find matching file as long as possible 
+                int max = 0;
 
                 //We're seeking directory files
-                foreach (string FileName in Directory.GetFiles("Data/CPU"))
+                foreach (string file in Directory.GetFiles($"{ToolsResourcesLocation}/cpuid/products/"))
                 {
-                    string NameWithoutExt = Path.GetFileNameWithoutExtension(FileName);
-                    if (string.IsNullOrEmpty(cpuid.ProcessorName) && string.IsNullOrEmpty(wmi.Processor.Name)) break;
-                    if ((cpuid.ProcessorName ?? wmi.Processor.Name).Contains(NameWithoutExt))
+                    string nakedname = Path.GetFileNameWithoutExtension(file);
+
+                    if (cpuname.Contains(nakedname) && max < nakedname.Length)
                     {
-                        if (TempLength > NameWithoutExt.Length) continue;
-                        TempLength = NameWithoutExt.Length;
-                        Form.pictureBox1.Image = System.Drawing.Image.FromFile(FileName);
-                        return;
+                        max = nakedname.Length;
+
+                        MainForm.CpuImage.Image = Image.FromFile(file);
                     }
                 }
             }
-            else Directory.CreateDirectory("Data/CPU");
 
-            if (File.Exists($"Data/{wmi.Processor.Manufacturer}.png"))
+            if(MainForm.CpuImage.Image == null && File.Exists($"{ToolsResourcesLocation}/cpuid/manufacturers/{wmi.Processor.Manufacturer}.png"))
             {
-                Form.pictureBox1.Image = System.Drawing.Image.FromFile($"Data/{wmi.Processor.Manufacturer}.png");
+                MainForm.CpuImage.Image = Image.FromFile($"{ToolsResourcesLocation}/cpuid/manufacturers/{wmi.Processor.Manufacturer}.png");
             }
         }
 
         /// <summary>
-        /// Show <see cref="CPUIDTool"/> main form
+        /// Unload <see cref="CpuidTool"/> resources
         /// </summary>
-        public void Show()
+        ~CpuidTool()
         {
-            this.Form.Show();
-            this.Form.BringToFront();
+            this.MainForm.Dispose();
         }
 
-        /// <summary>
-        /// Unload <see cref="CPUIDTool"/> resources
-        /// </summary>
-        ~CPUIDTool()
+        public override void Show()
         {
-            this.Form.Dispose();
+            MainForm.Show();
+            MainForm.BringToFront();
         }
     }
 }

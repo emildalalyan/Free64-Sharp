@@ -5,32 +5,45 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <Authors>Emil Dalalyan</Authors>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>Free64.Common.snk</AssemblyOriginatorKeyFile>
-    <Platforms>AnyCPU;x86</Platforms>
+    <Platforms>x86;x64</Platforms>
     <PackageLicenseExpression>MIT Licence</PackageLicenseExpression>
     <Copyright>Emil Dalalyan</Copyright>
     <RepositoryType>Git</RepositoryType>
     <Product>Free64 Common classes</Product>
     <RepositoryUrl>https://github.com/emildalalyan/Free64-Sharp</RepositoryUrl>
+    <Version>0.5.2</Version>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>C:\Users\Emil\Desktop\.NET 5\Free64\Free64\Debug\Any CPU</OutputPath>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutputPath>..\Debug\x64\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <Optimize>false</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
-    <OutputPath>C:\Users\Emil\Desktop\.NET 5\Free64\Free64\Debug\Any CPU</OutputPath>
+    <OutputPath>..\Debug\x86\</OutputPath>
+    <PlatformTarget>x86</PlatformTarget>
+    <Optimize>false</Optimize>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>C:\Users\Emil\Desktop\.NET 5\Free64\Free64\Release\x86\</OutputPath>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutputPath>..\Release\x64\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
-    <OutputPath>C:\Users\Emil\Desktop\.NET 5\Free64\Free64\Release\x86\</OutputPath>
+    <OutputPath>..\Release\x86\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
 
 </Project>

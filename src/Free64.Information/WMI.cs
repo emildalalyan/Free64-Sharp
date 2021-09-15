@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using System.Management;
 using System.Diagnostics;
 using System.Runtime.Versioning;
@@ -8,14 +8,26 @@ using System.Runtime.Versioning;
 namespace Free64.Information
 {
     /// <summary>
-    /// Class intended to gathering information from WMI (Windows Management Instrumentation)
+    /// Class intended to gathering information from <b>W</b>indows <b>M</b>anagement <b>I</b>nstrumentation.
     /// </summary>
     [SupportedOSPlatform("windows")]
-    public sealed partial class WMI : IInformationSource
+    public sealed partial class WMI : IMultiThreadedInformationSource
     {
-        private readonly ManagementScope ScopeCIMv2 = new("root\\CIMV2");
-        
-        private readonly ManagementScope ScopeWMI = new("root\\WMI");
+        /// <summary>
+        /// Storages all neccessary <see cref="ManagementScope"/>s
+        /// </summary>
+        public static class Scopes
+        {
+            /// <summary>
+            /// Represents "<b>root\CIMV2</b>" <see cref="ManagementScope"/>
+            /// </summary>
+            public static readonly ManagementScope Cimv2 = new("root\\CIMV2");
+
+            /// <summary>
+            /// Represents "<b>root\WMI</b>" <see cref="ManagementScope"/>
+            /// </summary>
+            public static readonly ManagementScope Wmi = new("root\\WMI");
+        }
 
         /// <summary>
         /// Information from Win32_OperatingSystem class
@@ -43,42 +55,72 @@ namespace Free64.Information
         public Win32_ComputerSystemProduct ComputerSystemProduct { get; private set; }
 
         /// <summary>
+        /// Information from Win32_BIOS class
+        /// </summary>
+        public Win32_BIOS Bios { get; private set; }
+
+        /// <summary>
         /// Clear all information
         /// </summary>
         public void Reset()
         {
-            OperatingSystem = new Win32_OperatingSystem(ScopeCIMv2);
-            Processor = new Win32_Processor(ScopeCIMv2);
-            CacheMemory = new Win32_CacheMemory(ScopeCIMv2);
-            Motherboard = new Win32_BaseBoard(ScopeCIMv2);
-            ComputerSystemProduct = new Win32_ComputerSystemProduct(ScopeCIMv2);
+            OperatingSystem =           new();
+            Processor =                 new();
+            CacheMemory =               new();
+            Motherboard =               new();
+            ComputerSystemProduct =     new();
+            Bios =                      new();
         }
 
         /// <summary>
         /// <see cref="WMI"/> constructor
         /// </summary>
-        public WMI(bool Initialize = false)
+        public WMI(bool initialize = false)
         {
             Reset();
-            if (Initialize) this.Initialize();
+            if (initialize) this.Initialize();
         }
 
         /// <summary>
-        /// Initialize <see cref="WMI"/> class
+        /// Initialize <see cref="WMI"/> class (gather <b>all</b> information)
         /// </summary>
-        /// <returns><see cref="List{T}" /> of <see cref="Exception"/>s</returns>
-        public List<Exception> Initialize()
+        /// <returns><see cref="List{T}" />, where T <see langword="is"/> <see cref="Exception"/></returns>
+#nullable enable
+        public Exception?[] Initialize()
         {
             Trace.WriteLine("Initializing Free64.Information.WMI class...");
 
-            return new()
+            return new Exception?[]
             {
                 OperatingSystem.Initialize(),
                 Processor.Initialize(),
                 CacheMemory.Initialize(),
                 Motherboard.Initialize(),
-                ComputerSystemProduct.Initialize()
+                ComputerSystemProduct.Initialize(),
+                Bios.Initialize()
             };
         }
+#nullable disable
+
+        /// <summary>
+        /// Asynchronous initialize <see cref="WMI"/> class (gather <b>all</b> information)
+        /// </summary>
+        /// <returns><see cref="Array"/> of <see cref="Task"/>s</returns>
+#nullable enable
+        public Task<Exception?>[] InitializeAsync()
+        {
+            Trace.WriteLine("Initializing Free64.Information.WMI class (async mode)...");
+
+            return new Task<Exception?>[]
+            {
+                OperatingSystem.InitializeAsync(),
+                Processor.InitializeAsync(),
+                CacheMemory.InitializeAsync(),  
+                Motherboard.InitializeAsync(),
+                ComputerSystemProduct.InitializeAsync(),
+                Bios.InitializeAsync()
+            };
+        }
+#nullable disable
     }
 }

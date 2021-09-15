@@ -5,10 +5,10 @@
     <Setting Name="EnableToolbar" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="fmMainWidth" Type="System.UInt16" Scope="User">
+    <Setting Name="fmMainWidth" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">800</Value>
     </Setting>
-    <Setting Name="fmMainHeight" Type="System.UInt16" Scope="User">
+    <Setting Name="fmMainHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">600</Value>
     </Setting>
     <Setting Name="EnableStatusBar" Type="System.Boolean" Scope="User">

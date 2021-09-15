@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 namespace Free64.Common
 {
     /// <summary>
-    /// Class, providing part of Windows API for .NET
+    /// Class, providing part of <b>Windows API</b>
     /// </summary>
+    [SupportedOSPlatform("windows")]
     public static class WindowsAPI
     {
         /// <summary>
@@ -14,33 +16,33 @@ namespace Free64.Common
         private static class NativeMethods
         {
             [DllImport("user32.dll", EntryPoint = "GetWindowLong")]
-            public static extern int GetWindowLong(IntPtr hWnd, Parameters nIndex);
+            public static extern uint GetWindowLong(IntPtr hWnd, int nIndex);
 
             [DllImport("user32.dll", EntryPoint = "SetWindowLong")]
-            public static extern int SetWindowLong(IntPtr hWnd, Parameters nIndex, int dwNewLong);
+            public static extern uint SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
         }
 
         /// <summary>
-        /// Windows API GetWindowLong function.
+        /// Windows API <b>GetWindowLong</b> method. This method let you get extra window memory value.
         /// </summary>
         /// <param name="hWnd"></param>
         /// <param name="nIndex"></param>
         /// <returns></returns>
-        public static int GetWindowLong(IntPtr Handle, Parameters Parameters) => NativeMethods.GetWindowLong(Handle, Parameters);
+        public static WindowStyles GetWindowLong(IntPtr handle, WindowParameters parameters) => (WindowStyles)NativeMethods.GetWindowLong(handle, (int)parameters);
 
         /// <summary>
-        /// Windows API SetWindowLong function.
+        /// Windows API <b>SetWindowLong</b> method. This method let you set extra window memory value.
         /// </summary>
         /// <param name="hWnd"></param>
         /// <param name="nIndex"></param>
         /// <param name="dwNewLong"></param>
         /// <returns></returns>
-        public static int SetWindowLong(IntPtr Handle, Parameters Parameters, int NewLong) => NativeMethods.SetWindowLong(Handle, Parameters, NewLong);
+        public static WindowStyles SetWindowLong(IntPtr handle, WindowParameters parameters, WindowStyles style) => (WindowStyles)NativeMethods.SetWindowLong(handle, (int)parameters, (int)style);
 
         /// <summary>
         /// Enumeration of parameters, which can be written in extra window memory
         /// </summary>
-        public enum Parameters
+        public enum WindowParameters
         {
             GWL_EXSTYLE = -20,
             GWL_STYLE = -16,
@@ -54,7 +56,8 @@ namespace Free64.Common
         /// <summary>
         /// Window styles, which can be written into extra window memory.
         /// </summary>
-        public enum WindowStyles
+        [Flags]
+        public enum WindowStyles : uint
         {
             WS_BORDER = 0x00800000,
             WS_CAPTION = 0x00C00000,
@@ -72,11 +75,15 @@ namespace Free64.Common
             WS_MINIMIZE = 0x20000000,
             WS_MINIMIZEBOX = 0x00020000,
             WS_OVERLAPPED = 0x00000000,
+            WS_OVERLAPPEDWINDOW = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX,
+            WS_POPUP = 0x80000000,
+            WS_POPUPWINDOW = WS_POPUP | WS_BORDER | WS_SYSMENU,
             WS_SIZEBOX = 0x00040000,
             WS_SYSMENU = 0x00080000,
             WS_TABSTOP = 0x00010000,
             WS_THICKFRAME = 0x00040000,
             WS_TILED = 0x00000000,
+            WS_TILEDWINDOW = WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME | WS_MINIMIZEBOX | WS_MAXIMIZEBOX,
             WS_VISIBLE = 0x10000000,
             WS_VSCROLL = 0x00200000
         }

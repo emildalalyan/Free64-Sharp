@@ -12,7 +12,7 @@ namespace Free64.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -38,9 +38,9 @@ namespace Free64.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("800")]
-        public ushort fmMainWidth {
+        public int fmMainWidth {
             get {
-                return ((ushort)(this["fmMainWidth"]));
+                return ((int)(this["fmMainWidth"]));
             }
             set {
                 this["fmMainWidth"] = value;
@@ -50,9 +50,9 @@ namespace Free64.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("600")]
-        public ushort fmMainHeight {
+        public int fmMainHeight {
             get {
-                return ((ushort)(this["fmMainHeight"]));
+                return ((int)(this["fmMainHeight"]));
             }
             set {
                 this["fmMainHeight"] = value;

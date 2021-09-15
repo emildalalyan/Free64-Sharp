@@ -11,12 +11,17 @@ namespace Free64.Information.Tests
     public class CPUID
     {
         /// <summary>
+        /// Processor specification, which has been gathered from <see cref="Information.CPUID"/> will compared to this.
+        /// </summary>
+        public const string ProcessorSpecification = "AMD Ryzen 5 2600 Six-Core Processor            ";
+
+        /// <summary>
         /// Compare collected CPU name from <see cref="CPUID"/> to expected
         /// </summary>
         /// <param name="expected"></param>
         [Theory]
-        [InlineData("AMD Ryzen 5 2600 Six-Core Processor            ")]
-        public void TestProcessorName(string expected)
+        [InlineData(ProcessorSpecification)]
+        public void TestProcessorSpecification(string expected)
         {
             Information.CPUID cpuid = new();
 
