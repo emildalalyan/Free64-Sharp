@@ -5,15 +5,15 @@
 
 ### Answers on possible questions
 
-#### Why does first release begin with 0.5-alpha?
-Because **Last Version** of PHP Free64 is **0.4.1-beta**
+#### Why is first release named 0.5-alpha?
+Because **last version** of PHP Free64 is **0.4.1-beta**
 
 #### Where can i download PHP Versions of Free64?
 :floppy_disk: **PHP Devel Studio** versions of *Free64* can be found *[here](https://github.com/emildalalyan/free64)*.
 
 #### What are the requirements?
   - Windows 7 with **Service Pack 1**
-  - **.NET 5** on the machine (0.5.1-alpha or above). If you don't have it, download *[here](https://dotnet.microsoft.com/download/dotnet/5.0)*
+  - **.NET 5** on the machine (0.5.1-alpha or above). If you don't have it, download it *[here](https://dotnet.microsoft.com/download/dotnet/5.0)*
   
     **! WARNING !** Download .NET 5 **DESKTOP RUNTIME**, not just **RUNTIME**
   - Around **10-20 MB** of Disk Space
