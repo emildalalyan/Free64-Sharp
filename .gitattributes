@@ -1,2 +1,4 @@
 *.cpp linguist-language=C++
 *.cs linguist-language=C#
+*.c linguist-language=C
+*.md linguist-language=Markdown
