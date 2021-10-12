@@ -1,4 +1,4 @@
-*.* linguist-vendored
+Smalltalk linguist-vendored
 *.cpp linguist-detectable=true
 *.cs linguist-detectable=true
 *.c linguist-detectable=true
