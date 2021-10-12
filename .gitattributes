@@ -1,4 +1,4 @@
 *.cpp linguist-detectable=true
 *.cs linguist-detectable=true
 *.c linguist-detectable=true
-*.xaml lignuist-detectable=true
+*.xaml lignuist-language=XAML
