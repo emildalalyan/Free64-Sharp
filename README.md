@@ -30,26 +30,26 @@ That looks **splash screen**:
 ![Image](splash.png)
 
 ### Roadmap
-- [ ] Getting of CPU cores temperature.
-- [ ] Getting of GPU(s) temperature(s).
-- [ ] Getting of fan(s) speed.
-- [ ] Reading of RAM SPD
-- [ ] Various benchmarks
-- [ ] Getting of motherboard chipset name and LPC name
-- [ ] System stability test (including displaying of throttling)
-- [ ] Verbose information about GPU(s)
-- [ ] Information about supporting APIs by the GPU(s).
-- [ ] Verbose information about sound card(s)
-- [ ] Getting of HDD S.M.A.R.T
-- [ ] Finish up the Free64 CPUID
-- [x] Verbose information about CPU cache (from CPUID).
-- [ ] Write Free64 Monitor Diagnostics
-- [ ] Write Free64 Keyboard Test
-- [ ] Write HDD Speed Benchmark
-- [ ] Write Cache and Memory Benchmark
-- [x] Free64.Information unit-tests.
-- [x] Multi-threaded collecting information from WMI and Registry.
-- [x] Auto-determing of build date
+- [ ] Getting of **CPU cores temperature**.
+- [ ] Getting of **GPU(s) temperature(s)**.
+- [ ] Getting of **fan(s) speed**.
+- [ ] Reading of **RAM SPD**
+- [ ] Various **benchmarks**
+- [ ] Getting of motherboard **chipset name** and **LPC name**
+- [ ] **System stability test** (including displaying of **throttling**)
+- [ ] Verbose information about **GPU(s)**
+- [ ] Information about **supporting APIs by the GPU(s)**.
+- [ ] Verbose information about **sound card(s)**
+- [ ] Getting of **HDD S.M.A.R.T**
+- [ ] Finish up the **Free64 CPUID**
+- [x] Verbose information about **CPU cache** (from CPUID).
+- [ ] Write **Free64 Monitor Diagnostics**
+- [ ] Write **Free64 Keyboard Test**
+- [ ] Write **HDD Speed Benchmark**
+- [ ] Write **Cache and Memory Benchmark**
+- [x] Free64.Information **unit-tests**.
+- [x] **Multi-threaded** collecting information from WMI and Registry.
+- [x] **Auto-determing** of build date
 
 ### Logo in different formats
   | Format | Link to it |
