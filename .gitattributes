@@ -1,4 +1,4 @@
-*.cpp linguist-language=C++
+*.cpp linguist-detectable=true
 *.cs linguist-language=C#
-*.c linguist-language=C
+*.c linguist-detectable=true
 *.xaml linguist-detectable=true
