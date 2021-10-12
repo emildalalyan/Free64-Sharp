@@ -35,7 +35,7 @@ That looks **splash screen**:
 - [ ] Getting of fan(s) speed.
 - [ ] Reading of RAM SPD
 - [ ] Various benchmarks
-- [ ] Getting of motherboard name and LPC name
+- [ ] Getting of motherboard chipset name and LPC name
 - [ ] System stability test (including displaying of throttling)
 - [ ] Verbose information about GPU(s)
 - [ ] Information about supporting APIs by the GPU(s).
