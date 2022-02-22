@@ -1,4 +1,4 @@
-<img width="128" height="128" align="left" alt="Free64 Logo"  src="free64-gradient-logo.png">
+<img width="120" height="120" align="left" alt="Free64 Logo"  src="free64_material.png">
 
 ## Free64 Extreme Edition
 **Free64** — open source program, that displays information about your computer. It is published under [MIT Licence](LICENSE).
