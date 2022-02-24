@@ -34,7 +34,7 @@ That looks **splash screen**:
 - [ ] Getting of **GPU(s) temperature(s)**.
 - [ ] Getting of **fan(s) speed**.
 - [ ] Reading of **RAM SPD**
-- [ ] Various **benchmarks**
+- [ ] Various **benchmarks** - **[(24.02.2022) IN PROGRESS]**
 - [ ] Getting of motherboard **chipset name** and **LPC name**
 - [ ] **System stability test** (including displaying of **throttling**)
 - [ ] Verbose information about **GPU(s)**
