@@ -54,13 +54,9 @@
 ### Логотип в различных форматах
   | Формат | Ссылка |
   | ------ | ------ |
-  | Portable Network Graphics | [free64-logo.png](https://github.com/emildalalyan/free64/blob/master/free64-logo.png?raw=true) |
-  | Windows Icon | [free64-logo.ico](https://github.com/emildalalyan/free64/blob/master/free64-logo.ico?raw=true) |
-  | Photoshop Document | [free64-logo.psd](https://github.com/emildalalyan/free64/blob/master/free64-logo.psd?raw=true) |
-  |||
-  | **Gradient** Portable Network Graphics | [free64-gradient-logo.png](https://github.com/emildalalyan/free64/blob/master/free64-gradient-logo.png?raw=true) |
-  | **Gradient** Windows Icon | [free64-gradient-logo.ico](https://github.com/emildalalyan/free64/blob/master/free64-gradient-logo.ico?raw=true) |
-  | **Gradient** Photoshop Document | [free64-gradient-logo.psd](https://github.com/emildalalyan/free64/blob/master/free64-gradient-logo.psd?raw=true) |
+  | **Material logo** - Portable Network Graphics | [free64_material.png](https://github.com/emildalalyan/Free64-Sharp/blob/main/free64_material.png?raw=true) |
+  | **Material logo** - Windows Icon | [free64_material.ico](https://github.com/emildalalyan/Free64-Sharp/blob/main/free64_material.ico?raw=true) |
+  | **Material logo** - Photoshop Document | [free64_material.psd](https://github.com/emildalalyan/Free64-Sharp/blob/main/free64_material.psd?raw=true) |
 
 ### Донат
 :credit_card: Если кто-то хочет **поддержать** *меня* или *мой проект* деньгами, тогда ссылка на *DonationAlerts* [**здесь**](https://donationalerts.com/r/emildalalyan)
