@@ -3,6 +3,8 @@
 ## Free64 Extreme Edition
 **Free64** — open source program, that displays information about your computer. It is published under [MIT Licence](LICENSE).
 
+**WARNING!** This project is no longer maintained. I just have no motivation to continue working on it.
+
 ### Answers on possible questions
 
 #### Why is first release named 0.5-alpha?
@@ -34,7 +36,7 @@ That looks **splash screen**:
 - [ ] Getting of **GPU(s) temperature(s)**.
 - [ ] Getting of **fan(s) speed**.
 - [ ] Reading of **RAM SPD**
-- [ ] Various **benchmarks** - **[(24.02.2022) IN PROGRESS]**
+- [ ] Various **benchmarks** - **[WERE IN PROGRESS]**
 - [ ] Getting of motherboard **chipset name** and **LPC name**
 - [ ] **System stability test** (including displaying of **throttling**)
 - [ ] Verbose information about **GPU(s)**
